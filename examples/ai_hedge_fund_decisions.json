@@ -1,0 +1,29 @@
+{
+  "date": "2024-06-07",
+  "decisions": {
+    "AAPL": {
+      "action": "buy",
+      "quantity": 8,
+      "confidence": 64,
+      "reasoning": "Fixture portfolio-manager buy. Not a recommendation."
+    },
+    "NVDA": {
+      "action": "buy",
+      "quantity": 2,
+      "confidence": 58,
+      "reasoning": "Fixture portfolio-manager buy. Not a recommendation."
+    },
+    "MSFT": {
+      "action": "hold",
+      "quantity": 0,
+      "confidence": 51,
+      "reasoning": "Fixture hold. Not a recommendation."
+    },
+    "TSLA": {
+      "action": "short",
+      "quantity": 3,
+      "confidence": 42,
+      "reasoning": "Fixture short. This practice loop does not simulate shorts."
+    }
+  }
+}

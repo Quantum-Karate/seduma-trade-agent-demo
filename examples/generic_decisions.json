@@ -1,0 +1,32 @@
+{
+  "decisions": [
+    {
+      "symbol": "AAPL",
+      "side": "BUY",
+      "size": 4,
+      "rationale": "Fixture buy for the confirm-gate example. Not a recommendation.",
+      "date": "2024-06-03"
+    },
+    {
+      "symbol": "MSFT",
+      "side": "HOLD",
+      "size": 0,
+      "rationale": "Fixture hold. Not a recommendation.",
+      "date": "2024-06-04"
+    },
+    {
+      "symbol": "AAPL",
+      "side": "SELL",
+      "size": 4,
+      "rationale": "Fixture sell of the shares bought above. Not a recommendation.",
+      "date": "2024-06-06"
+    },
+    {
+      "symbol": "NVDA",
+      "side": "BUY",
+      "size": 2,
+      "rationale": "Fixture buy left open so the summary can show a mark. Not a recommendation.",
+      "date": "2024-06-06"
+    }
+  ]
+}
