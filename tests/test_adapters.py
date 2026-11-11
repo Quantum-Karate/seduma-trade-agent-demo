@@ -108,6 +108,17 @@ def test_ai_hedge_fund_example_and_cover() -> None:
     assert cover.rejected[0].symbol == "AMD"
 
 
+def test_ai_hedge_fund_bad_shape_is_an_adapter_error() -> None:
+    with pytest.raises(AdapterError, match="must be a JSON object"):
+        get_adapter("ai-hedge-fund").parse(["AAPL"])
+    with pytest.raises(AdapterError, match="ticker map"):
+        get_adapter("ai-hedge-fund").parse({})
+    with pytest.raises(AdapterError, match="ticker map"):
+        get_adapter("ai-hedge-fund").parse({"hello": "world"})
+    with pytest.raises(AdapterError, match="ticker map"):
+        get_adapter("ai-hedge-fund").parse({"decisions": [{"action": "buy"}]})
+
+
 def test_ai_hedge_fund_rejects_unknown_action() -> None:
     with pytest.raises(AdapterError, match="not buy, sell, hold"):
         get_adapter("ai-hedge-fund").parse(

@@ -93,6 +93,27 @@ def test_eof_without_practice_auto_is_an_error() -> None:
     assert "practice-auto" in completed.stderr
 
 
+def test_bad_hedge_fund_file_is_a_parse_error(tmp_path: Path) -> None:
+    decision_file = tmp_path / "not-decisions.json"
+    decision_file.write_text('{"hello": "world"}\n', encoding="utf-8")
+    completed = _run(
+        [
+            "run",
+            "--agent",
+            "ai-hedge-fund",
+            "--file",
+            str(decision_file),
+            "--practice-auto",
+            "--out",
+            str(tmp_path / "out"),
+        ]
+    )
+    assert completed.returncode == 2
+    assert "ticker map" in completed.stderr
+    assert "Traceback" not in completed.stderr
+    assert "Traceback" not in completed.stdout
+
+
 def test_missing_file_and_schema() -> None:
     missing = _run(["run", "--agent", "generic", "--file", "examples/missing.json"])
     assert missing.returncode == 2

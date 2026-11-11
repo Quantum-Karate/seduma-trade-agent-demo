@@ -77,7 +77,7 @@ def _split(payload: object) -> tuple[dict, str | None]:
         return nested, as_of
     if payload and all(isinstance(value, dict) and "action" in value for value in payload.values()):
         return payload, None
-        raise AdapterError(
-            "ai-hedge-fund input must be {decisions: {TICKER: {action, quantity, reasoning}}} "
-            "or a ticker map of those objects"
-        )
+    raise AdapterError(
+        "ai-hedge-fund input must be {decisions: {TICKER: {action, quantity, reasoning}}} "
+        "or a ticker map of those objects"
+    )
