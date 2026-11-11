@@ -1,0 +1,40 @@
+[project]
+name = "seduma-trade-agent-demo"
+version = "0.1.0"
+description = "Practice-only simulated fills for decisions from LLM trading agents."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Quantum Karate" }]
+keywords = ["simulation", "trading-agents", "practice"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+seduma-demo = "seduma_demo.cli:main"
+
+[project.urls]
+Repository = "https://github.com/Quantum-Karate/seduma-trade-agent-demo"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["seduma_demo*"]
+
+[tool.setuptools.package-data]
+seduma_demo = ["generic_decision.schema.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
